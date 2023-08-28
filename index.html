@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<p id="output"></p>
+		<script>
+			const printSearchParams = () => {
+				const params = new URLSearchParams(window.location.search);
+
+				const output = document.getElementById('output');
+				output.textContent = params.toString();
+			};
+
+			document.addEventListener('DOMContentLoaded', printSearchParams);
+		</script>
+	</body>
+</html>
