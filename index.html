@@ -6,16 +6,13 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<p id="output"></p>
+		<div id="embededSearchWidget"></div>
 		<script>
-			const printSearchParams = () => {
-				const params = new URLSearchParams(window.location.search);
-
-				const output = document.getElementById('output');
-				output.textContent = params.toString();
+			window.SearchWidgetConfig = {
+				widgetPurpose: 'landing',
+				hostId: 'embededSearchWidget',
 			};
-
-			document.addEventListener('DOMContentLoaded', printSearchParams);
 		</script>
+		<script src="https://6f5d1d02.searchwidget-ezt.pages.dev/search-widget-initialization.js"></script>
 	</body>
 </html>
