@@ -18,6 +18,8 @@
 			<tbody>
 				<tr>
 					<td>Location search</td>
+					<td id="locationSearchSize"></td>
+					<td id="locationSearchLength"></td>
 					<td id="locationSearch"></td>
 				</tr>
 				<tr>
@@ -38,9 +40,13 @@
 		<script src="https://6f5d1d02.searchwidget-ezt.pages.dev/search-widget-initialization.js"></script>
 		<script>
 			const output = document.getElementById('searchParams');
+			const outputSize = document.getElementById('locationSearchSize');
+			const outputLength = document.getElementById('locationSearchLength');
 			const locationSearch = document.location.search;
 			const searchParams = new URLSearchParams(locationSearch);
 
+			output.outputSize = searchParams.size;
+			output.outputLength = searchParams.length;
 			output.textContent = `${searchParams.size}, ${searchParams.toString()}`;
 		</script>
 	</body>
