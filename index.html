@@ -21,6 +21,10 @@
 					<td id="locationSearch"></td>
 				</tr>
 				<tr>
+					<td>Search params</td>
+					<td id="searchParams"></td>
+				</tr>
+				<tr>
 					<td>Additional params</td>
 					<td id="additionalParams"></td>
 				</tr>
@@ -32,5 +36,12 @@
 		</table>
 		<div id="embededSearchWidget"></div>
 		<script src="https://6f5d1d02.searchwidget-ezt.pages.dev/search-widget-initialization.js"></script>
+		<script>
+			const output = document.getElementById('searchParams');
+			const locationSearch = document.location.search;
+			const searchParams = new URLSearchParams(locationSearch);
+
+			output.textContent = `${searchParams.size}, ${searchParams.toString()}`;
+		</script>
 	</body>
 </html>
