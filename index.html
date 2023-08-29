@@ -51,8 +51,8 @@
 			const locationSearch = document.location.search;
 			const searchParams = new URLSearchParams(locationSearch);
 
-			output.outputSize = searchParams.size;
-			output.outputLength = searchParams.length;
+			output.outputSize = searchParams.size.toString();
+			output.outputLength = searchParams.length.toString();
 			output.textContent = searchParams.toString();
 		</script>
 	</body>
