@@ -4,52 +4,45 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<script>
-			window.SearchWidgetConfig = {
-				widgetPurpose: 'landing',
-				hostId: 'embededSearchWidget',
-				redirectUrl: '#',
-				trackingUrl: '#',
-			};
-		</script>
+		<link rel="stylesheet" href="./styles.css" />
 	</head>
 	<body>
-		<table>
-			<tbody>
-				<tr>
-					<td>Location size</td>
-					<td id="locationSearchSize"></td>
-				</tr>
-				<tr>
-					<td>Location length</td>
-					<td id="locationSearchLength"></td>
-				</tr>
-				<tr>
-					<td>Search params</td>
-					<td id="searchParams"></td>
-				</tr>
-				<tr>
-					<td>Additional params</td>
-					<td id="additionalParams"></td>
-				</tr>
-				<tr>
-					<td>Redirect URL</td>
-					<td id="redirectUrl"></td>
-				</tr>
-			</tbody>
-		</table>
-		<div id="embededSearchWidget"></div>
-		<script src="https://6f5d1d02.searchwidget-ezt.pages.dev/search-widget-initialization.js"></script>
-		<script>
-			const output = document.getElementById('searchParams');
-			const outputSize = document.getElementById('locationSearchSize');
-			const outputLength = document.getElementById('locationSearchLength');
-			const locationSearch = document.location.search;
-			const searchParams = new URLSearchParams(locationSearch);
+		<div>
+			<div class="wrapper">
+				<header class="header">header</header>
+				<div id="contentWrapper" class="contentWrapper">
+					<div>
+						<div class="content">
+							<div>
+								<div class="section">
+									<button id="scrollButton">Scroll</button>
+								</div>
+								<div class="section blue"></div>
+								<div class="section yellow"></div>
+								<div class="section green"></div>
+								<div id="errorSection" class="section red"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-			outputSize.textContent = `${searchParams.size}`;
-			outputLength.textContent = `${searchParams.length}`;
-			output.textContent = searchParams.toString();
+		<script>
+			const scrollToTop = () => {
+				const errorSection = document.getElementById('errorSection');
+				const contentWrapper = document.getElementById('contentWrapper');
+
+				contentWrapper.scrollTop = errorSection.offsetTop;
+			};
+
+			const init = () => {
+				const scrollButton = document.getElementById('scrollButton');
+
+				scrollButton.addEventListener('click', scrollToTop);
+			};
+
+			document.addEventListener('DOMContentLoaded', init);
 		</script>
 	</body>
 </html>
